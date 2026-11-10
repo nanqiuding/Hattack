@@ -11,6 +11,9 @@ class Optim(BaseModel):
     alpha: float = 1.0
     epsilon: int = 16
     steps: int = 300
+    lambda_coh: float = 1.0
+    lambda_dec: float = 1.0
+    gamma: float = 1.0
 
 class Model(BaseModel):
     resize: int = 224

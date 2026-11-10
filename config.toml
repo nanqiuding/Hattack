@@ -1,4 +1,4 @@
-method = "FOA_global"
+method = "DHRA_NIPS1000"
 # blackbox = ["qwen_2_5_vl_7b", "llava_1_5_7b", "llava_1_6_7b", "gemma_3_4b_it"]
 blackbox = ["claude-sonnet-4-5", "gemini-2.0-flash", "gpt-4o"]
 device = "cuda:0"
@@ -6,8 +6,8 @@ attack = "fgsm"
 
 [data]
 num_samples = 1000
-src_data_path = "datas/source_1000"
-tgt_data_path = "datas/target_1000"
+src_data_path = "datas/nips2017_1000"
+tgt_data_path = "datas/coco_val2017_1000"
 
 [optim]
 alpha = 1.0

@@ -1,0 +1,22 @@
+method = "M_ATTACK_NIPS100"
+# blackbox = ["qwen_2_5_vl_7b", "llava_1_5_7b", "llava_1_6_7b", "gemma_3_4b_it"]
+blackbox = ["claude-sonnet-4-5", "gemini-2.0-flash", "gpt-4o"]
+device = "cuda:0"
+attack = "fgsm"
+
+[data]
+num_samples = 100
+src_data_path = "datas/nips2017_1000"
+tgt_data_path = "datas/coco_val2017_1000"
+
+[optim]
+alpha = 1.0
+epsilon = 16
+steps = 300
+
+[model]
+resize = 224
+use_source_crop = true
+use_target_crop = true
+crop_scale = [0.5, 0.9] 
+backbones = ["B16", "B32", "Laion"]

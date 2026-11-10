@@ -4,9 +4,16 @@ from .utils import (
     write_json,
     read_json
 )
-from .scorer import GPTScorer
-from .matcher import KeywordMatcher
-from .generator import (
-    ImageDescriptionGeneratorOpen,
-    ImageDescriptionGeneratorClose
-)
+
+# Optional API clients are imported only by scripts that use them.
+def __getattr__(name):
+    if name == "GPTScorer":
+        from .scorer import GPTScorer
+        return GPTScorer
+    if name == "KeywordMatcher":
+        from .matcher import KeywordMatcher
+        return KeywordMatcher
+    if name in ("ImageDescriptionGeneratorOpen", "ImageDescriptionGeneratorClose"):
+        from . import generator
+        return getattr(generator, name)
+    raise AttributeError(name)

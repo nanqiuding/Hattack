@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from tqdm import tqdm
 
-from .soft_dtw_cuda import SoftDTW
+# Optional SoftDTW is loaded only for DTW clustering.
 
 
 def initialize(X, num_clusters, seed):
